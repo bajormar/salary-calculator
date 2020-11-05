@@ -12,7 +12,7 @@ const cells = [
 export const times = (count: number) => Array.from(Array(count).keys());
 
 function App() {
-  const [levels] = useState([
+  const [levels, setLevels] = useState([
     { name: "JUNIOR_1", low: 1000 },
     { name: "JUNIOR_2", low: 1000, high: 1500 },
     { name: "DEV_1", low: 1500, high: 1850 },
@@ -90,6 +90,62 @@ function App() {
               ))}
             </tr>
           ))}
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr>
+            <th>Level</th>
+            <th>Low</th>
+            <th>High</th>
+          </tr>
+        </thead>
+        <tbody>
+          {levels.map((level) => {
+            return (
+              <tr key={level.name}>
+                <td>
+                  {level.name === "JUNIOR_1"
+                    ? `${level.name} (Base)`
+                    : level.name}
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    value={level.low}
+                    onChange={(e) => {
+                      setLevels((prevState) => {
+                        const newState = [...prevState];
+                        const levelToEdit = newState.find(
+                          (l) => l.name === level.name
+                        );
+                        levelToEdit!.low = Number(e.target.value || 0) || 0;
+                        return newState;
+                      });
+                    }}
+                  />
+                </td>
+                <td>
+                  {level.name !== "JUNIOR_1" && (
+                    <input
+                      type="text"
+                      value={level.high}
+                      onChange={(e) => {
+                        setLevels((prevState) => {
+                          const newState = [...prevState];
+                          const levelToEdit = newState.find(
+                            (l) => l.name === level.name
+                          );
+                          levelToEdit!.high = Number(e.target.value || 0) || 0;
+                          return newState;
+                        });
+                      }}
+                    />
+                  )}
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
       <div>Salary: {salary} EUR</div>

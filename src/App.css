@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  grid-column-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+table {
+  border-right: 1px solid gray;
 }
 
 td, th {
