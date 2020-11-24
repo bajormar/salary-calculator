@@ -1,10 +1,27 @@
-.App {
+
+.Row {
   text-align: center;
   display: grid;
   justify-content: space-between;
   align-items: center;
   grid-column-gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 250px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.RoleButton {
+  border: 1px solid gray;
+  background: white;
+}
+
+.RoleButton-active {
+  border: 1px solid darkgreen;
+  background: lightgreen;
+  color: white;
 }
 
 table {
