@@ -105,26 +105,28 @@ function App() {
   }, [teamLeadLevels]);
 
   const salary = useMemo(() => {
-    return selected.reduce((acc, cur, index) => {
-      const z = times(cur + 1);
-      return (
-        acc +
-        z.reduce((x, y) => {
-          return x + cellValues[y][index];
-        }, 0)
+    return selected.reduce((acc, columnSelectedLevel, index) => {
+      const columnSum = times(columnSelectedLevel + 1).reduce(
+        (columnAcc, levelIndex) => {
+          return columnAcc + cellValues[levelIndex][index];
+        },
+        0
       );
+
+      return acc + columnSum;
     }, 0);
   }, [cellValues, selected]);
 
   const teamLeadSalary = useMemo(() => {
-    return teamLeadSelected.reduce((acc, cur, index) => {
-      const z = times(cur + 1);
-      return (
-        acc +
-        z.reduce((x, y) => {
-          return x + teamLeadCellValues[y][index];
-        }, 0)
+    return teamLeadSelected.reduce((acc, columnSelectedLevel, index) => {
+      const columnSum = times(columnSelectedLevel + 1).reduce(
+        (columnAcc, levelIndex) => {
+          return columnAcc + teamLeadCellValues[levelIndex][index];
+        },
+        0
       );
+
+      return acc + columnSum;
     }, 0);
   }, [teamLeadCellValues, teamLeadSelected]);
 
