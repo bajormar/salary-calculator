@@ -11,8 +11,8 @@ function App() {
   const [role, setRole] = useState(Role.Developer);
 
   const [devSkills, setDevSkills] = useState([
-    { name: "Autonomy", weight: 0.2 },
-    { name: "Delivery", weight: 0.2 },
+    { name: "Autonomy", weight: 0.1 },
+    { name: "Delivery", weight: 0.3 },
     { name: "Growth", weight: 0.2 },
     { name: "Job knowledge", weight: 0.2 },
     { name: "Soft skills", weight: 0.2 },
@@ -35,11 +35,11 @@ function App() {
   ]);
 
   const [devLevels, setDevLevels] = useState([
-    { name: "JUNIOR_1", low: 1000 },
-    { name: "JUNIOR_2", low: 1000, high: 1500 },
-    { name: "DEV_1", low: 1500, high: 1850 },
-    { name: "DEV_2", low: 1850, high: 2200 },
-    { name: "SENIOR_1", low: 2200, high: 2800 },
+    { name: "JUNIOR_1", low: 1150 },
+    { name: "JUNIOR_2", low: 1150, high: 1510 },
+    { name: "DEV_1", low: 1510, high: 2000 },
+    { name: "DEV_2", low: 2000, high: 2400 },
+    { name: "SENIOR_1", low: 2400, high: 2800 },
     { name: "SENIOR_2", low: 2800, high: 3400 },
   ]);
 
@@ -49,10 +49,10 @@ function App() {
   ]);
 
   const [pmLevels, setPmLevels] = useState([
-    { name: "JUNIOR_1", low: 1149 },
-    { name: "JUNIOR_2", low: 1149, high: 1573 },
-    { name: "PM_1", low: 1573, high: 1766 },
-    { name: "PM_2", low: 1766, high: 2359 },
+    { name: "JUNIOR_1", low: 700 },
+    { name: "JUNIOR_2", low: 700, high: 1149 },
+    { name: "PM_1", low: 1149, high: 1577 },
+    { name: "PM_2", low: 1577, high: 2359 },
     { name: "SENIOR_1", low: 2359, high: 2878 },
     { name: "SENIOR_2", low: 2878, high: 3397 },
   ]);
